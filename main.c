@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<assert.h>
 
 struct node {
   int data;
@@ -34,7 +35,20 @@ struct node* BuildOneTwoThree() {
   return(head);
 }
 
-int main() {
+//1 - Count()
+//Builds a list and counts the number of times a given int occurs
+int Count(struct node* head, int search) {
+  return 0;
+}
 
+void CountTest() {
+  struct node* list;
+  list = BuildOneTwoThree();
+  int count = Count(list, 2);
+  assert(count == 1);
+}
+
+int main() {
+  CountTest();
   return 0;
 }
