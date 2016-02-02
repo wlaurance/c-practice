@@ -74,6 +74,14 @@ void GetNthTest() {
 //Write a func that takes a list, deallocates all of its memory and sets its head
 //pointer to NULL
 void DeleteList(struct node** headRef) {
+  struct node* current = *headRef;
+  struct node* next;
+  while(current != NULL) {
+    next = current->next;
+    free(current);
+    current = next;
+  }
+  *headRef = NULL;
 }
 void DeleteListTest() {
   struct node* myList = BuildOneTwoThree();
