@@ -53,8 +53,21 @@ void CountTest() {
   int count = Count(list, 2);
   assert(count == 1);
 }
+//2 -GetNth()
+//Write a GetNth() function that takes a linked list and an integer index and
+//returns the data value stored in the node at that index position.
+int GetNth(struct node* head, int index) {
+  return 0;
+}
+
+void GetNthTest() {
+  struct node* myList = BuildOneTwoThree();
+  int lastNode = GetNth(myList, 2);
+  assert(lastNode == 3);
+}
 
 int main() {
   CountTest();
+  GetNthTest();
   return 0;
 }
