@@ -70,9 +70,20 @@ void GetNthTest() {
   int lastNode = GetNth(myList, 2);
   assert(lastNode == 3);
 }
+//3 - DeleteList()
+//Write a func that takes a list, deallocates all of its memory and sets its head
+//pointer to NULL
+void DeleteList(struct node** headRef) {
+}
+void DeleteListTest() {
+  struct node* myList = BuildOneTwoThree();
+  DeleteList(&myList);
+  assert(myList == NULL);
+}
 
 int main() {
   CountTest();
   GetNthTest();
+  DeleteListTest();
   return 0;
 }
