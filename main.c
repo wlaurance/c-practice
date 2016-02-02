@@ -38,7 +38,13 @@ struct node* BuildOneTwoThree() {
 //1 - Count()
 //Builds a list and counts the number of times a given int occurs
 int Count(struct node* head, int search) {
-  return 0;
+  int count = 0;
+  struct node* current = head;
+  while(current != NULL) {
+    if (current->data == search) { count++; }
+    current = current->next;
+  }
+  return count;
 }
 
 void CountTest() {
