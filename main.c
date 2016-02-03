@@ -145,6 +145,7 @@ void InsertNth(struct node** headRef, int index, int value) {
 }
 void InsertNthTest() {
   struct node* head = NULL;
+  printf("Running InsertNthTest\n");
   Visualize(head);
   InsertNth(&head, 0, 13);
   Visualize(head);
