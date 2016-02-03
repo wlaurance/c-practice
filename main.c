@@ -102,7 +102,7 @@ void PopTest() {
   int b = Pop(&head);// deletes "2" node and returns 2
   int c = Pop(&head);// deletes "3" node and returns 3
   int len = Length(head);// the list is now empty, so len == 0
-  assert(len = 0);
+  assert(len == 0);
 }
 
 int main() {
