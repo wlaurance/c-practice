@@ -99,7 +99,7 @@ void DeleteListTest() {
   assert(myList == NULL);
 }
 
-//3 - Pop()
+//4 - Pop()
 //function is inverse of pop. pop takes a non empty list, deletes the head node,
 //and returns the head node's data.
 int Pop(struct node** headRef) {
@@ -124,7 +124,7 @@ void PopTest() {
   assert(len == 0);
 }
 
-//4 - InserNth()
+//5 - InserNth()
 //insert a new node at any index within a list. Push() is similar,
 //but can only insert a node at the head of a list.
 void InsertNth(struct node** headRef, int index, int value) {
