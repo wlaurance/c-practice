@@ -178,13 +178,15 @@ void SortedInsert(struct node** headRef, struct node* newNode) {
       }
       return;
     }
-    if (newNode->data <= next->data) {
+    if (next == NULL) {
+      current->next = newNode;
+      newNode->next = next;
+    } else if (newNode->data <= next->data) {
       current->next = newNode;
       newNode->next = next;
       return;
-    } else {
-      current = current->next;
     }
+    current = current->next;
   }
 }
 
