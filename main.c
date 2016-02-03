@@ -172,16 +172,34 @@ void SortedInsertTest() {
   Push(&head, 2);
   Push(&head, 1);
   Visualize(head);
+
+  struct node* zero = (struct node*) malloc(sizeof(struct node));
+  zero->data = 0;
+  SortedInsert(&head, zero);
+  Visualize(head);
+
   struct node* four = (struct node*) malloc(sizeof(struct node));
   four->data = 4;
   SortedInsert(&head, four);
   Visualize(head);
-  assert(Length(head) > 5);
+
   struct node* eight = (struct node*) malloc(sizeof(struct node));
   eight->data = 8;
   SortedInsert(&head, eight);
   Visualize(head);
-  assert(Length(head) > 6);
+
+  struct node* eighty = (struct node*) malloc(sizeof(struct node));
+  eighty->data = 80;
+  SortedInsert(&head, eighty);
+  Visualize(head);
+
+  printf("Test empty SortedInsertTest\n");
+  struct node* empty = NULL;
+  Visualize(empty);
+  struct node* first = (struct node*) malloc(sizeof(struct node));
+  first->data = 10;
+  SortedInsert(&empty, first);
+  Visualize(empty);
 }
 
 int main() {
