@@ -35,6 +35,16 @@ struct node* BuildOneTwoThree() {
   return(head);
 }
 
+// Visualize Linked List
+void Visualize(struct node* head) {
+  struct node* current = head;
+  while (current != NULL) {
+    printf("%d-->", current->data);
+    current=current->next;
+  }
+  printf("NULL\n");
+}
+
 //1 - Count()
 //Builds a list and counts the number of times a given int occurs
 int Count(struct node* head, int search) {
@@ -114,10 +124,42 @@ void PopTest() {
   assert(len == 0);
 }
 
+//4 - InserNth()
+//insert a new node at any index within a list. Push() is similar,
+//but can only insert a node at the head of a list.
+void InsertNth(struct node** headRef, int index, int value) {
+  assert(index < Length(*headRef) + 1);
+  struct node* curr = *headRef;
+  int i = 0;
+  while (++i < index) {
+    curr = curr->next;
+  }
+  struct node* newNode = (struct node*) malloc(sizeof(struct node));
+  newNode->data = value;
+  if (curr == NULL) {
+    *headRef = newNode;
+  } else {
+    newNode->next = curr->next;
+    curr->next = newNode;
+  }
+}
+void InsertNthTest() {
+  struct node* head = NULL;
+  Visualize(head);
+  InsertNth(&head, 0, 13);
+  Visualize(head);
+  InsertNth(&head, 1, 42);
+  Visualize(head);
+  InsertNth(&head, 1, 5);
+  assert(Length(head) == 3);
+  Visualize(head);
+  DeleteList(&head);
+}
 int main() {
   CountTest();
   GetNthTest();
   DeleteListTest();
   PopTest();
+  InsertNthTest();
   return 0;
 }
