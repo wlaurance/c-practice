@@ -161,6 +161,31 @@ void InsertNthTest() {
 //Write a func which given a list that is sorted in increasing order.
 void SortedInsert(struct node** headRef, struct node* newNode) {
   printf("Inserting Node with data %d\n", newNode->data);
+  struct node* current = *headRef;
+  struct node* next = NULL;
+  if (current == NULL) {
+    //Handle case of list being empty
+    *headRef = newNode;
+    return;
+  }
+  while (current != NULL) {
+    next = current->next;
+    if (current->data > newNode->data) {
+      newNode->next = current;
+      current->next = next;
+      if (current == *headRef) {
+        *headRef = newNode;
+      }
+      return;
+    }
+    if (newNode->data <= next->data) {
+      current->next = newNode;
+      newNode->next = next;
+      return;
+    } else {
+      current = current->next;
+    }
+  }
 }
 
 void SortedInsertTest() {
