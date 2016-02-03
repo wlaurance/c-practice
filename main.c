@@ -156,11 +156,40 @@ void InsertNthTest() {
   Visualize(head);
   DeleteList(&head);
 }
+
+//6 - SortedInsert()
+//Write a func which given a list that is sorted in increasing order.
+void SortedInsert(struct node** headRef, struct node* newNode) {
+  printf("Inserting Node with data %d\n", newNode->data);
+}
+
+void SortedInsertTest() {
+  printf("Running SortedInsertTest\n");
+  struct node* head = NULL;// Start with the empty list
+  Push(&head, 10);// Use Push() to add all the data
+  Push(&head, 5);
+  Push(&head, 3);// Use Push() to add all the data
+  Push(&head, 2);
+  Push(&head, 1);
+  Visualize(head);
+  struct node* four = (struct node*) malloc(sizeof(struct node));
+  four->data = 4;
+  SortedInsert(&head, four);
+  Visualize(head);
+  assert(Length(head) > 5);
+  struct node* eight = (struct node*) malloc(sizeof(struct node));
+  eight->data = 8;
+  SortedInsert(&head, eight);
+  Visualize(head);
+  assert(Length(head) > 6);
+}
+
 int main() {
   CountTest();
   GetNthTest();
   DeleteListTest();
   PopTest();
   InsertNthTest();
+  SortedInsertTest();
   return 0;
 }
