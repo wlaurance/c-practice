@@ -90,17 +90,26 @@ void DeleteListTest() {
 }
 
 //3 - Pop()
-//function is inverse of pop. pop takes a non empty list, deletes the head noe,
+//function is inverse of pop. pop takes a non empty list, deletes the head node,
 //and returns the head node's data.
 int Pop(struct node** headRef) {
-  return Length(*headRef);
+  assert(Length(*headRef) > 0);
+  struct node* current = *headRef;
+  assert(current != NULL);
+  int value = current->data;
+  *headRef = current->next;
+  free(current);
+  return value;
 }
 
 void PopTest() {
   struct node* head = BuildOneTwoThree();// build {1, 2, 3}
   int a = Pop(&head);// deletes "1" node and returns 1
+  assert(a==1);
   int b = Pop(&head);// deletes "2" node and returns 2
+  assert(b==2);
   int c = Pop(&head);// deletes "3" node and returns 3
+  assert(c==3);
   int len = Length(head);// the list is now empty, so len == 0
   assert(len == 0);
 }
