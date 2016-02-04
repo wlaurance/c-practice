@@ -165,6 +165,7 @@ void SortedInsert(struct node** headRef, struct node* newNode) {
   struct node* next = NULL;
   if (current == NULL) {
     //Handle case of list being empty
+    newNode->next = *headRef;
     *headRef = newNode;
     return;
   }
