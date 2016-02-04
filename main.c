@@ -228,13 +228,26 @@ void SortedInsertTest() {
   first->data = 10;
   SortedInsert(&empty, first);
   Visualize(empty);
+  printf("Try adding something else");
+  struct node* two = (struct node*) malloc(sizeof(struct node));
+  two->data = -2;
+  SortedInsert(&empty, two);
+  Visualize(empty);
 }
 
 //7 - InsertSort Test
 //Write an InsertSort function which given a list, rearranges its nodes so they are sorted
 //in increasing order. It should use SortedInsert();
 void InsertSort(struct node** headRef) {
-  
+  struct node* newHead = NULL;
+  struct node* current = *headRef;
+  while (current != NULL) {
+    struct node* temp = (struct node*) malloc(sizeof(struct node));
+    temp->data = current->data;
+    SortedInsert(&newHead, temp);
+    current = current->next;
+  }
+  *headRef = newHead;
 }
 
 void InsertSortTest() {
