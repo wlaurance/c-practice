@@ -230,6 +230,26 @@ void SortedInsertTest() {
   Visualize(empty);
 }
 
+//7 - InsertSort Test
+//Write an InsertSort function which given a list, rearranges its nodes so they are sorted
+//in increasing order. It should use SortedInsert();
+void InsertSort(struct node** headRef) {
+  
+}
+
+void InsertSortTest() {
+  printf("==========\nStarting Insert Sort Test\n");
+  struct node* head = NULL;
+  //Push non ordered nodes
+  Push(&head, 10);
+  Push(&head, 12);
+  Push(&head, 48);
+  Push(&head, 8);
+  Push(&head, -2);
+  Push(&head, 3);
+  Visualize(head);
+}
+
 int main() {
   CountTest();
   GetNthTest();
@@ -237,5 +257,6 @@ int main() {
   PopTest();
   InsertNthTest();
   SortedInsertTest();
+  InsertSortTest();
   return 0;
 }
