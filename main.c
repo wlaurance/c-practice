@@ -248,6 +248,8 @@ void InsertSortTest() {
   Push(&head, -2);
   Push(&head, 3);
   Visualize(head);
+  InsertSort(&head);
+  Visualize(head);
 }
 
 int main() {
