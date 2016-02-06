@@ -270,6 +270,85 @@ void InsertSortTest() {
   DeleteList(&head);
 }
 
+//8 - Append Test
+//Write a func that takes two lists a and b and appends b onto the end of a
+void Append(struct node** aRef, struct node** bRef) {
+  printf("Appending list A (length: %d) list B (length: %d)\n", Length(*aRef), Length(*bRef));
+  struct node* itr = *aRef;
+  if (*aRef == NULL) {
+    *aRef = *bRef;
+  } else if (*bRef != NULL) {
+    while (itr->next != NULL) {
+      itr = itr->next;
+    }
+    itr->next = *bRef;
+  }
+  *bRef = NULL;
+}
+
+void AppendTest() {
+  printf("============================\nAppend Tests\n");
+  struct node* a = NULL;
+  struct node* b = NULL;
+  struct node* c = NULL;
+  struct node* d = NULL;
+  struct node* e = NULL;
+  struct node* f = NULL;
+  struct node* g = NULL;
+  struct node* h = NULL;
+
+  printf("Testing a,b as normal populated lists\n");
+
+  Push(&a, 2);
+  Push(&a, 13);
+  Push(&a, 581);
+
+  Push(&b, 132);
+  Push(&b, 1);
+  Push(&b, 783);
+
+  Visualize(a);
+  Visualize(b);
+
+  Append(&a, &b);
+
+  Visualize(a);
+  Visualize(b);
+
+  printf("Testing a,b as empty lists\n");
+  printf("A empty Not B\n");
+  d = BuildOneTwoThree();
+  Visualize(c);
+  Visualize(d);
+  Append(&c,&d);
+  Visualize(c);
+  Visualize(d);
+  printf("B empty Not A\n");
+  e = BuildOneTwoThree();
+  Visualize(e);
+  Visualize(f);
+  Append(&e,&f);
+  Visualize(e);
+  Visualize(f);
+  printf("A empty B empty\n");
+  Visualize(g);
+  Visualize(h);
+  Append(&g,&h);
+  Visualize(g);
+  Visualize(h);
+
+  //Delete
+  //DeleteList(&a);
+  //DeleteList(&b);
+  //DeleteList(&c);
+  //DeleteList(&d);
+  //DeleteList(&e);
+  //DeleteList(&f);
+  //DeleteList(&g);
+  //DeleteList(&h);
+
+}
+
 int main() {
   CountTest();
   GetNthTest();
@@ -278,5 +357,6 @@ int main() {
   InsertNthTest();
   SortedInsertTest();
   InsertSortTest();
+  AppendTest();
   return 0;
 }
