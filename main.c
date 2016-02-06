@@ -122,6 +122,7 @@ void PopTest() {
   assert(c==3);
   int len = Length(head);// the list is now empty, so len == 0
   assert(len == 0);
+  DeleteList(&head);
 }
 
 //5 - InserNth()
@@ -233,6 +234,8 @@ void SortedInsertTest() {
   two->data = -2;
   SortedInsert(&empty, two);
   Visualize(empty);
+  DeleteList(&empty);
+  DeleteList(&head);
 }
 
 //7 - InsertSort Test
@@ -247,6 +250,7 @@ void InsertSort(struct node** headRef) {
     SortedInsert(&newHead, temp);
     current = current->next;
   }
+  DeleteList(headRef);
   *headRef = newHead;
 }
 
@@ -263,6 +267,7 @@ void InsertSortTest() {
   Visualize(head);
   InsertSort(&head);
   Visualize(head);
+  DeleteList(&head);
 }
 
 int main() {
