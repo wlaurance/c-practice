@@ -244,13 +244,12 @@ void SortedInsertTest() {
 void InsertSort(struct node** headRef) {
   struct node* newHead = NULL;
   struct node* current = *headRef;
+  struct node* next;
   while (current != NULL) {
-    struct node* temp = (struct node*) malloc(sizeof(struct node));
-    temp->data = current->data;
-    SortedInsert(&newHead, temp);
-    current = current->next;
+    next = current->next;
+    SortedInsert(&newHead, current);
+    current = next;
   }
-  DeleteList(headRef);
   *headRef = newHead;
 }
 
